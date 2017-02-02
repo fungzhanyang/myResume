@@ -1,0 +1,520 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.layout {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.swiper-container, .swiper-wrapper, .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 音乐图标 S */
+.music {
+    display: none;
+    position: fixed;
+    width: .6rem;
+    height: .6rem;
+    border-radius: 50%;
+    background: url("../audio/music.svg") no-repeat;
+    background-size: 100% 100%;
+    top: .2rem;
+    right: .2rem;
+    z-index: 1000;
+}
+
+.music.move {
+    -webkit-animation: musicMove 1s linear infinite;
+    animation: musicMove 1s linear infinite;
+}
+
+@-webkit-keyframes musicMove {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes musicMove {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* 音乐图标 E */
+/* 上滑箭头 S */
+.pare {
+    position: absolute;
+    background-color: #000;
+    bottom: .6rem;
+    left: 50%;
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.pare .pare_l, .pare .pare_r {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: .3rem;
+    height: .08rem;
+    margin-left: -.22rem;
+    background-color: #fff;
+    border-radius: .04rem;
+    transform: rotate(130deg);
+    box-shadow: 0 -.02rem .02rem 0 #000;
+}
+
+.pare .pare_r {
+    margin-left: -0.06rem;
+    transform: rotate(-130deg);
+    box-shadow: -.02rem .02rem .02rem 0 #000;
+}
+
+@-webkit-keyframes bounce {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: translateY(-.8rem);
+        transform: translateY(-.8rem);
+    }
+    75% {
+        -webkit-transform: translateY(.2rem);
+        transform: translateY(.2rem);
+    }
+
+    90% {
+        -webkit-transform: translateY(-.2rem);
+        transform: translateY(-.2rem);
+    }
+
+    to {
+        opacity: .1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+/*上滑箭头 E */
+/* page1 S*/
+.slider1 {
+    background-color: #e0e0e0;
+}
+
+.slider1 .tit {
+    width: 100%;
+    height: 4rem;
+    position: relative;
+    top: 6%;
+}
+
+.slider1 .tit ul {
+    perspective: 700px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider1 .tit ul:nth-of-type(1) {
+    width: 80%;
+    height: 3.2rem;
+}
+
+.slider1 .tit ul:nth-of-type(2) {
+    width: 70%;
+    height: 2.4rem;
+}
+
+.slider1 .tit ul li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 2px solid #ccc;
+    left: 0;
+    top: 0;
+    transform: rotateX(90deg);
+}
+
+.slider1 .tit h2 {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: -20rem;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1rem;
+    color: #5E5663;
+}
+
+.slider1.animation ul li:nth-child(2n) {
+    transition: all 1s;
+    transform: rotateX(25deg);
+}
+
+.slider1.animation ul li:nth-child(2n+1) {
+    transition: all 1s;
+    transform: rotateX(-25deg);
+}
+
+.slider1.animation h2 {
+    animation: titIn 1.5s .5s ease both;
+}
+
+@keyframes titIn {
+    0% {
+        top: -20rem;
+    }
+    50% {
+        top: 58%;
+    }
+    75% {
+        top: 46%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+.slider1 .photo {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    bottom: 10%;
+    left: 50%;
+    border: 3px solid #5E5663;
+    transform: translateX(-50%);
+}
+
+.slider1 .photo img {
+    width: 178%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider1.animation .photo {
+    transition: all 1s;
+    opacity: 1;
+    width: 3.6rem;
+    height: 3.6rem;
+}
+
+.slider1 p {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: .4rem;
+    line-height: .4rem;
+    bottom: .2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slider1.animation p {
+    transition: width steps(8) 2s 1s;
+    width: 2rem;
+}
+
+/* 第二页 S */
+.slider2 {
+    background-color: #f0f9ff;
+}
+
+.slider2 ul li {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .4rem;
+}
+
+.slider2 ul li:nth-child(1) {
+    width: 3rem;
+    opacity: 0;
+    top:.6rem;
+    border-radius: .2rem;
+    overflow: hidden;
+}
+
+.slider2 ul li:nth-child(1) img {
+    display: block;
+    width: 100%;
+}
+
+.slider2 ul li:nth-child(2) {
+    top: 6.3rem;
+    margin-left: .4rem;
+    font-size: .6rem;
+}
+
+.slider2 ul li:nth-child(3) {
+    top: 7.3rem;
+    margin-left: 0rem;
+}
+
+.slider2 ul li:nth-child(4) {
+    top: 8.1rem;
+    margin-left: -.2rem;
+}
+.slider2.animation ul li:nth-child(1) {
+    animation: fadeInLeft .8s 0s linear both;
+}
+.slider2.animation ul li:nth-child(2) {
+    animation: fadeInRight 1.5s .8s ease both;
+}
+.slider2.animation ul li:nth-child(3) {
+    animation: fadeInRight 1.5s 1.2s ease both;
+}
+.slider2.animation ul li:nth-child(4) {
+    animation: fadeInRight 1.5s 1.6s ease both;
+}
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-100%) scale(.5,.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1,1);
+    }
+}
+@keyframes fadeInRight {
+    from {
+        transform: translateX(100%);
+    }
+    75% {
+        opacity: 1;
+        transform: translateX(-55%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%);
+    }
+}
+/* 第二页 E */
+
+/*第三页 S*/
+.slider3 h2{
+    text-align: center;
+    margin-top: .4rem;
+}
+.slider3 .line {
+    transform: rotateY(360deg);
+    overflow: hidden;
+    height: 0;
+    text-align: center;
+    margin-top: .4rem;
+}
+.slider3 .line img {
+    height: 7.32rem;
+}
+.slider3.animation .line {
+    animation: sliderIn 6s 0s linear both;
+}
+@keyframes sliderIn {
+    from{
+        height: 0;
+    }
+    16% {
+        height: 2.26rem;
+    }
+    32% {
+        height: 2.26rem;
+    }
+    48% {
+        height: 4.42rem;
+    }
+    64% {
+        height: 4.42rem;
+    }
+    80% {
+        height: 7.32rem;
+    }
+    100% {
+        height: 7.32rem;
+    }
+}
+
+.slider3 {
+    background: url(../images/page3/bg2.png) no-repeat center/cover;
+}
+
+.slider3 ul li {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+.slider3 ul li:nth-child(2n+1) {
+    border-radius: .06rem;
+    width: 1.4rem;
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center;
+    background-color: greenyellow;
+}
+.slider3 ul li:nth-child(2n) {
+    width: 1.8rem;
+    color: #e5e5e5;
+}
+.slider3 ul li:nth-child(1) {
+    top: 2.66rem;
+}
+.slider3 ul li:nth-child(2) {
+    top: 2.1rem;
+}
+.slider3 ul li:nth-child(3) {
+    top: 4.84rem;
+}
+
+.slider3 ul li:nth-child(4) {
+    top: 4.34rem;
+}
+.slider3 ul li:nth-child(5) {
+    top: 7.04rem;
+}
+.slider3 ul li:nth-child(6) {
+    top: 6.52rem;
+}
+
+.slider3.animation ul li:nth-child(1) {
+    transition: all 1s .8s;
+    opacity: 1;
+    margin-left: -.7rem;
+}
+
+.slider3.animation ul li:nth-child(2) {
+    opacity: 1;
+    transition: all 1s .8s;
+    margin-left: 1.8rem;
+}
+
+.slider3.animation ul li:nth-child(3) {
+    opacity: 1;
+    transition: all 1s 2.4s;
+    margin-left: .7rem;
+}
+
+.slider3.animation ul li:nth-child(4) {
+    opacity: 1;
+    transition: all 1s 2.6s;
+    margin-left: -1.8rem;
+    text-align: right;
+}
+
+.slider3.animation ul li:nth-child(5) {
+    opacity: 1;
+    transition: all 1s 4.4s;
+    margin-left: -.7rem;
+}
+
+.slider3.animation ul li:nth-child(6) {
+    opacity: 1;
+    transition: all 1s 4.4s;
+    margin-left: 1.8rem;
+}
+/*第三页 E*/
+
+
+/*第四页 S*/
+.slider4 {
+    background: url(../images/back.gif) no-repeat center/cover;
+}
+.slider4 .ewm {
+    opacity: 0;
+    width: 3.6rem;
+    height: 3.6rem;
+    margin: .6rem auto .4rem;
+}
+.slider4 .ewm img {
+    width: 100%;
+    height: 100%;
+}
+.slider4 ul {
+    font-size: .28rem;
+    margin: 0 auto;
+    width: 4.74rem;
+}
+.slider4 ul li {
+    opacity: 0;
+    float: left;
+    height: 1rem;
+    line-height: 1rem;
+    margin-left: .02rem;
+    margin-bottom: .02rem;
+    background-color: rgba(0,0,0,.5);
+}
+.slider4 ul li:nth-child(2n+1) {
+    width: 1rem;
+    text-align: center;
+    color: #ccc;
+}
+.slider4 ul li:nth-child(2n) {
+    padding-left: .2rem;
+    width: 3.5rem;
+    color: #f5f5f5;
+}
+@keyframes zoomIn {
+    from{
+        transform: scale(.3,.3);
+    }
+    to {
+        opacity: 1;
+    }
+}
+.slider4.animation .ewm{
+    animation: zoomIn .5s 0s linear both;
+}
+@keyframes fadeInDown {
+    from{
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.slider4.animation ul li:nth-child(1),.slider4.animation ul li:nth-child(2) {
+    animation: fadeInDown .8s 0.8s ease both;
+}
+
+.slider4.animation ul li:nth-child(3),.slider4.animation ul li:nth-child(4) {
+    animation: fadeInDown .8s 1.0s ease both;
+}
+
+.slider4.animation ul li:nth-child(5),.slider4.animation ul li:nth-child(6) {
+    animation: fadeInDown .8s 1.2s ease both;
+}
+
+.slider4.animation ul li:nth-child(7),.slider4.animation ul li:nth-child(8) {
+    animation: fadeInDown .8s 1.4s ease both;
+}
+/*第四页 E*/
